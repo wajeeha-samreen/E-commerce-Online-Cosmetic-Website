@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">وجیہہ</div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="offers.html">Offers</a>
+                <a href="contact.html">Contact</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span> <!-- Optional: To show item count -->
+                </a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="cart">
+            <h1>Your Shopping Cart</h1>
+            <!-- Cart items will be dynamically added here -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 وجیہہ Makeup Store</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
+<a href="cart.html" class="cart-icon">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-count">0</span> <!-- Optional: To show item count -->
+</a>
+<!-- Add this to your cart section -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const cartContainer = document.querySelector('.cart');
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+        function displayCartItems() {
+            if (cartItems.length === 0) {
+                cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+                return;
+            }
+
+            cartItems.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'cart-item';
+                itemElement.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div>
+                        <h3>${item.name}</h3>
+                        <p>Price: ${item.price}</p>
+                        <p>Quantity: ${item.quantity}</p>
+                    </div>
+                `;
+                cartContainer.appendChild(itemElement);
+            });
+        }
+
+        displayCartItems();
+    });
+</script>

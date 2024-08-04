@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Makeup E-Commerce</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Makeup Store</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <header>
+        <div class="container">
+            <div class="logo">وجیہہ Makeup Store</div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="product-details">
+            <button onclick="window.history.back()">Back to Products</button>
+            <img id="product-image" src="images/product1.jpg" alt="Product Image" onclick="openLightbox()">
+            <h2 id="product-name">Eye shadow pallete</h2>
+            <p id="product-price">₹2000.00</p>
+            <p id="product-description">Product description goes here.</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </section>
+
+        <section class="related-products">
+            <h3>Related Products</h3>
+            <div class="product">
+                <a href="product.html?id=2">
+                    <img src="images/eyeshadow.jpg" alt="Eyeshadow">
+                    <div class="overlay">
+                        <h4>Eyeshadow</h4>
+                    </div>
+                </a>
+                <p>₹1500.00</p>
+            </div>
+            <!-- Add more related products as needed -->
+        </section>
+
+        <section class="reviews">
+            <h3>Customer Reviews</h3>
+            <div class="review">
+                <p>"Poor quality." - amitha</p>
+            </div>
+            <form action="#" method="post">
+                <h4>Leave a Review</h4>
+                <textarea name="review" rows="1" placeholder="Write your review here..." required></textarea>
+                <button type="submit">Submit Review</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Makeup Store. All rights reserved.</p>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img class="lightbox-content" id="lightbox-image">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
